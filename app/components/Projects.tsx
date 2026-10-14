@@ -50,7 +50,7 @@ const projectsData: Project[] = [
     subtitle: "Event-Driven Food Delivery Microservices Platform",
     description:
       "QuickBite is an asynchronous, event-driven microservices backend engineered for high-throughput food delivery platforms. It manages the complete order lifecycle — from restaurant browsing and order placement to real-time delivery tracking, payments, and driver assignments — across multi-region environments.",
-    images: ["/projects/quick-bite.jfif", "/projects/quickbite-2.png"],
+    images: ["/projects/quick-bite.jpg", "/projects/quickbite-2.png"],
     tech: [
       { name: "Node.js", icon: SiNodedotjs, color: "#5FA04E" },
       { name: "Express", icon: SiExpress, color: "#fff" },
