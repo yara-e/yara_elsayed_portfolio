@@ -308,7 +308,7 @@ export default function Hero() {
                           ? "z-50 scale-110 -translate-y-6 rotate-0 shadow-[0_30px_70px_rgba(124,77,255,0.4)] brightness-110"
                           : isInactive
                             ? "opacity-35 blur-[2px] scale-95 shadow-none grayscale-[30%]"
-                            : "shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] opacity-100"
+                            : "shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)]"
                       }
                     `}
                     style={{
