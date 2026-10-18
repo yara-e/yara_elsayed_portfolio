@@ -20,6 +20,23 @@ export default function Hero() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // 1. Immediately hide elements on mount to prevent double-load/flash glitches
+      gsap.set(
+        [
+          ".gsap-greeting",
+          ".gsap-title",
+          ".gsap-subtitle",
+          ".gsap-about-title",
+          ".gsap-about-text",
+          ".gsap-actions",
+          ".gsap-mobile-label",
+          ".gsap-project-card",
+          ".gsap-mobile-cta",
+        ],
+        { opacity: 0 }
+      );
+
+      // 2. Play entrance timeline smoothly
       const tl = gsap.timeline({
         defaults: { ease: "power3.out", duration: 0.9 },
       });
@@ -27,43 +44,43 @@ export default function Hero() {
       tl.fromTo(
         ".gsap-greeting",
         { y: 25, opacity: 0, scale: 0.95 },
-        { y: 0, opacity: 1, scale: 1 },
+        { y: 0, opacity: 1, scale: 1 }
       )
         .fromTo(
           ".gsap-title",
           { y: 35, opacity: 0, scale: 0.98 },
           { y: 0, opacity: 1, scale: 1 },
-          "-=0.6",
+          "-=0.6"
         )
         .fromTo(
           ".gsap-subtitle",
           { y: 25, opacity: 0, scale: 0.95 },
           { y: 0, opacity: 1, scale: 1 },
-          "-=0.6",
+          "-=0.6"
         )
         .fromTo(
           ".gsap-about-title",
           { y: 25, opacity: 0 },
           { y: 0, opacity: 1 },
-          "+=0.1",
+          "+=0.1"
         )
         .fromTo(
           ".gsap-about-text",
           { y: 25, opacity: 0 },
           { y: 0, opacity: 1 },
-          "-=0.6",
+          "-=0.6"
         )
         .fromTo(
           ".gsap-actions",
           { y: 25, opacity: 0 },
           { y: 0, opacity: 1 },
-          "-=0.6",
+          "-=0.6"
         )
         .fromTo(
           ".gsap-mobile-label",
           { y: 20, opacity: 0 },
           { y: 0, opacity: 1 },
-          "+=0.1",
+          "+=0.1"
         )
         .fromTo(
           ".gsap-project-card",
@@ -75,13 +92,13 @@ export default function Hero() {
             ease: "power3.out",
             duration: 1.1,
           },
-          "-=0.6",
+          "-=0.6"
         )
         .fromTo(
           ".gsap-mobile-cta",
           { y: 15, opacity: 0 },
           { y: 0, opacity: 1 },
-          "-=0.4",
+          "-=0.4"
         );
 
       gsap.to(".gsap-bg-glow", {
@@ -125,7 +142,7 @@ export default function Hero() {
 
   const handleMagneticMove = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    index: number,
+    index: number
   ) => {
     const target = magneticBtnsRef.current[index];
     if (!target) return;
@@ -289,7 +306,6 @@ export default function Hero() {
                 const isAnyHovered = hoveredIdx !== null;
                 const isInactive = isAnyHovered && !isFocused;
 
-                // Scaled horizontal margins/offsets so cards fan out safely with breathing room
                 const leftPositions = [
                   "left-1 sm:left-4 lg:left-0",
                   "left-16 sm:left-36 lg:left-40",
