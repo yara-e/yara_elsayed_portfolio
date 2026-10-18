@@ -20,23 +20,6 @@ export default function Hero() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // 1. Immediately hide elements on mount to prevent double-load/flash glitches
-      gsap.set(
-        [
-          ".gsap-greeting",
-          ".gsap-title",
-          ".gsap-subtitle",
-          ".gsap-about-title",
-          ".gsap-about-text",
-          ".gsap-actions",
-          ".gsap-mobile-label",
-          ".gsap-project-card",
-          ".gsap-mobile-cta",
-        ],
-        { opacity: 0 }
-      );
-
-      // 2. Play entrance timeline smoothly
       const tl = gsap.timeline({
         defaults: { ease: "power3.out", duration: 0.9 },
       });
@@ -187,15 +170,15 @@ export default function Hero() {
 
       <div className="relative mb-10 sm:mb-16 text-center mx-auto max-w-5xl w-full z-10">
         <div className="inline-block relative text-left">
-          <p className="gsap-greeting font-handwriting text-accent-purple text-2xl sm:text-4xl md:text-5xl -rotate-2 -mb-2 sm:-mb-3 ml-1">
+          <p className="gsap-greeting opacity-0 font-handwriting text-accent-purple text-2xl sm:text-4xl md:text-5xl -rotate-2 -mb-2 sm:-mb-3 ml-1">
             Hello, I&apos;m Yara
           </p>
 
-          <h1 className="gsap-title font-display text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-none select-none">
+          <h1 className="gsap-title opacity-0 font-display text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-none select-none">
             SOFTWARE ENGINEER
           </h1>
 
-          <p className="gsap-subtitle font-handwriting text-accent-amber text-2xl sm:text-4xl md:text-5xl lg:text-6xl -rotate-2 -mt-3 sm:-mt-6 lg:-mt-8 text-right mr-2 pointer-events-none drop-shadow-lg">
+          <p className="gsap-subtitle opacity-0 font-handwriting text-accent-amber text-2xl sm:text-4xl md:text-5xl lg:text-6xl -rotate-2 -mt-3 sm:-mt-6 lg:-mt-8 text-right mr-2 pointer-events-none drop-shadow-lg">
             Full Stack Developer
           </p>
         </div>
@@ -203,11 +186,11 @@ export default function Hero() {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center w-full max-w-7xl mx-auto z-10">
         <div className="lg:col-span-5 flex flex-col space-y-5 sm:space-y-6 text-left order-1">
-          <h2 className="gsap-about-title font-display text-xl sm:text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-accent-purple to-purple-400">
+          <h2 className="gsap-about-title opacity-0 font-display text-xl sm:text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-accent-purple to-purple-400">
             ABOUT ME
           </h2>
 
-          <p className="gsap-about-text font-sans text-text-muted text-sm sm:text-base md:text-lg leading-relaxed max-w-xl">
+          <p className="gsap-about-text opacity-0 font-sans text-text-muted text-sm sm:text-base md:text-lg leading-relaxed max-w-xl">
             Passionate Software Engineer specializing in building{" "}
             <span className="text-accent-amber font-medium">
               scalable web platforms
@@ -220,7 +203,7 @@ export default function Hero() {
             high-performance visual experiences.
           </p>
 
-          <div className="gsap-actions flex flex-wrap items-center gap-3 sm:gap-4 pt-2">
+          <div className="gsap-actions opacity-0 flex flex-wrap items-center gap-3 sm:gap-4 pt-2">
             <a
               ref={(el) => {
                 magneticBtnsRef.current[0] = el;
@@ -282,7 +265,7 @@ export default function Hero() {
 
         {/* Right Column: Cards Stack with Added Safe Margins */}
         <div className="lg:col-span-7 flex flex-col items-center lg:items-end justify-center relative w-full pt-6 lg:pt-0 order-2 px-2 sm:px-4">
-          <div className="gsap-mobile-label lg:hidden flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-text-muted mb-4">
+          <div className="gsap-mobile-label opacity-0 lg:hidden flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-text-muted mb-4">
             <span className="w-2 h-2 rounded-full bg-accent-amber animate-pulse" />
             <span>Featured Work Preview</span>
           </div>
@@ -317,7 +300,7 @@ export default function Hero() {
                     key={proj.id}
                     onMouseEnter={() => setHoveredIdx(idx)}
                     onTouchStart={() => setHoveredIdx(idx)}
-                    className={`gsap-project-card absolute ${leftPositions[idx]} transition-all duration-500 ease-out cursor-pointer
+                    className={`gsap-project-card opacity-0 absolute ${leftPositions[idx]} transition-all duration-500 ease-out cursor-pointer
                       w-56 sm:w-80 lg:w-[420px]
                       p-[3px] rounded-2xl bg-gradient-to-br from-accent-purple via-purple-900/40 to-accent-amber
                       ${
@@ -349,7 +332,7 @@ export default function Hero() {
 
           <a
             href="#projects"
-            className="gsap-mobile-cta lg:hidden mt-6 inline-flex items-center gap-2 text-sm font-medium text-accent-amber hover:text-white px-5 py-2.5 rounded-xl bg-bg-card/80 border border-accent-amber/30 transition-all duration-300 hover:scale-105 active:scale-95 shadow-md shadow-accent-amber/10"
+            className="gsap-mobile-cta opacity-0 lg:hidden mt-6 inline-flex items-center gap-2 text-sm font-medium text-accent-amber hover:text-white px-5 py-2.5 rounded-xl bg-bg-card/80 border border-accent-amber/30 transition-all duration-300 hover:scale-105 active:scale-95 shadow-md shadow-accent-amber/10"
           >
             <span>See all projects</span>
             <FaArrowRight className="w-3.5 h-3.5" />
